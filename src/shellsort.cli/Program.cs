@@ -6,7 +6,12 @@ namespace shellsort.cli
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
+      Console.WriteLine("Shellsort CLI");
+
+
+
+      Console.WriteLine("Press any key to quit...");
+      Console.ReadKey();
     }
   }
 }
