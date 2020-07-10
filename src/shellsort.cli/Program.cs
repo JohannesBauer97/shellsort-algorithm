@@ -15,6 +15,7 @@ namespace shellsort.cli
       int lowerBound = ReadNumberFromConsole("Type a lower bound for generated numbers: ");
       int upperBound = ReadNumberFromConsole("Type a upper bound for generated numbers: ");
       int[] sequence = GenerateSequence(length, lowerBound, upperBound);
+      Console.WriteLine("\n");
       Console.Write("Print to generated numbers to console (Y/N): ");
       ConsoleKeyInfo key = Console.ReadKey();
       Console.WriteLine();
@@ -23,6 +24,7 @@ namespace shellsort.cli
         Console.WriteLine("Generated sequence:");
         PrintSequenceToConsole(sequence);
       }
+      Console.WriteLine("\n");
 
       // Insertion Sort
       DateTime start = DateTime.Now;
@@ -37,9 +39,10 @@ namespace shellsort.cli
       int[] sortedShellSort = ShellSort(sequence, gaps);
       stop = DateTime.Now;
       timespan = stop.Subtract(start);
-      Console.WriteLine($"Sorting with Shell Sort took {timespan.TotalMilliseconds} ms.");
+      Console.WriteLine($"Sorting with shell sort took {timespan.TotalMilliseconds} ms.");
 
       // User output
+      Console.WriteLine("\n");
       Console.Write("Print sorted numbers to console (Y/N): ");
       key = Console.ReadKey();
       Console.WriteLine();
@@ -49,6 +52,7 @@ namespace shellsort.cli
         PrintSequenceToConsole(sortedShellSort);
       }
 
+      Console.WriteLine("\n");
       Console.WriteLine("Press any key to quit...");
       Console.ReadKey();
     }
