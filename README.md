@@ -4,6 +4,8 @@ This project implements the Shellsort algorithm as command line interface (CLI).
 > Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort).[3] The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. By starting with far apart elements, it can move some out-of-place elements into position faster than a simple nearest neighbor exchange.
 
 [Wikipedia](https://en.wikipedia.org/wiki/Shellsort)
+# Screenshot
+![cli demo](.github/screenshots/cli.png)
 # License
 ````
 MIT License
