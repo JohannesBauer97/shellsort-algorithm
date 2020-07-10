@@ -21,7 +21,7 @@ namespace shellsort.cli
       Console.WriteLine();
       if (key.Key == ConsoleKey.Y)
       {
-        Console.WriteLine("Generated sequence:");
+        Console.WriteLine("Generated sorted:");
         PrintSequenceToConsole(sequence);
       }
       Console.WriteLine("\n");
@@ -48,7 +48,7 @@ namespace shellsort.cli
       Console.WriteLine();
       if (key.Key == ConsoleKey.Y)
       {
-        Console.WriteLine("Sorted sequence:");
+        Console.WriteLine("Sorted sorted:");
         PrintSequenceToConsole(sortedShellSort);
       }
 
@@ -58,53 +58,57 @@ namespace shellsort.cli
     }
 
     /// <summary>
-    /// Orders the given sequence ascending using the shell sort algorithm
+    /// Orders the given sorted ascending using the shell sort algorithm
     /// </summary>
     /// <param name="sequence">Sequence to order</param>
     /// <param name="gaps">Descendant ordered array of numbers (minimum value is 1)</param>
     /// <returns></returns>
     static int[] ShellSort(int[] sequence, int[] gaps)
     {
+      int[] sorted = new int[sequence.Length];
+      sequence.CopyTo(sorted, 0);
       foreach (int h in gaps)
       {
-        for (int i = 0; i < sequence.Length; i++)
+        for (int i = 0; i < sorted.Length; i++)
         {
           int j = i;
-          int tmp = sequence[i];
-          while ((j >= h) && (sequence[j - h] > tmp))
+          int tmp = sorted[i];
+          while ((j >= h) && (sorted[j - h] > tmp))
           {
-            sequence[j] = sequence[j - h];
+            sorted[j] = sorted[j - h];
             j = j - h;
           }
 
-          sequence[j] = tmp;
+          sorted[j] = tmp;
         }
       }
 
-      return sequence;
+      return sorted;
     }
 
     /// <summary>
-    /// Sorts the given sequence ascending by using the insertion sort algorithm
+    /// Sorts the given sorted ascending by using the insertion sort algorithm
     /// </summary>
-    /// <param name="sequence"></param>
+    /// <param name="sortedce"></param>
     /// <returns></returns>
     static int[] InsertionSort(int[] sequence)
     {
-      for (int i = 0; i < sequence.Length - 1; i++)
+      int[] sorted = new int[sequence.Length];
+      sequence.CopyTo(sorted, 0);
+      for (int i = 0; i < sorted.Length - 1; i++)
       {
         for (int j = i + 1; j > 0; j--)
         {
-          if (sequence[j - 1] > sequence[j])
+          if (sorted[j - 1] > sorted[j])
           {
-            int temp = sequence[j - 1];
-            sequence[j - 1] = sequence[j];
-            sequence[j] = temp;
+            int temp = sorted[j - 1];
+            sorted[j - 1] = sorted[j];
+            sorted[j] = temp;
           }
         }
       }
 
-      return sequence;
+      return sorted;
     }
 
     /// <summary>
@@ -144,7 +148,7 @@ namespace shellsort.cli
     }
 
     /// <summary>
-    /// Generates a random sequence of numbers
+    /// Generates a random sorted of numbers
     /// </summary>
     /// <param name="length">array size</param>
     /// <param name="lowerBound">minimum int which can be generated</param>
